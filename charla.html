@@ -27,13 +27,13 @@
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Rust</h1><h2 class="author">zentauro</h2><p class="date">Created: 2020-02-24 Mon 20:39</p>
+<h1 class="title">Rust</h1><h2 class="author">zentauro</h2><p class="date">Created: 2020-02-24 Mon 22:40</p>
 </section>
 
 
 <section>
-<section id="slide-orgf351e3f">
-<h2 id="orgf351e3f">Rust</h2>
+<section id="slide-orgd18feb5">
+<h2 id="orgd18feb5">Rust</h2>
 
 <div class="figure">
 <p><object type="image/svg+xml" data="./img/rust_logo.svg" class="org-svg">
@@ -42,16 +42,16 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 </section>
-<section id="slide-org3b0a49d">
-<h3 id="org3b0a49d">Que es Rust?</h3>
+<section id="slide-org63ac536">
+<h3 id="org63ac536">Que es Rust?</h3>
 <p>
 Rust es un lenguaje de programación con un enfoque en
 seguridad, concurrencia y "velocidad de ejecución".
 </p>
 
 </section>
-<section id="slide-org525786c">
-<h3 id="org525786c">Ejemplo C</h3>
+<section id="slide-orgdf94aa7">
+<h3 id="orgdf94aa7">Ejemplo C</h3>
 <div class="org-src-container">
 
 <pre><code class=" c" >#include &lt;stdlib.h&gt;
@@ -75,8 +75,8 @@ int main() {
 </div>
 
 </section>
-<section id="slide-orgfad6027">
-<h3 id="orgfad6027">Ejemplo Rust</h3>
+<section id="slide-org84515e0">
+<h3 id="org84515e0">Ejemplo Rust</h3>
 <div class="org-src-container">
 
 <pre><code class=" rust" >use std::vec::Vec;
@@ -94,8 +94,8 @@ fn main() {
 </section>
 </section>
 <section>
-<section id="slide-orgade6d7b">
-<h2 id="orgade6d7b">Por qué Rust?</h2>
+<section id="slide-org0336657">
+<h2 id="org0336657">Por qué Rust?</h2>
 <ul>
 <li>Evitar (muchos) bugs de memoria</li>
 <li>Mantenibilidad y escalabilidad</li>
@@ -117,19 +117,19 @@ fn main() {
 </section>
 </section>
 <section>
-<section id="slide-org17d4d9a">
-<h2 id="org17d4d9a">Instalación</h2>
-<div class="outline-text-2" id="text-org17d4d9a">
+<section id="slide-orgf37b6e6">
+<h2 id="orgf37b6e6">Instalación</h2>
+<div class="outline-text-2" id="text-orgf37b6e6">
 </div>
 </section>
-<section id="slide-org039a4d4">
-<h3 id="org039a4d4">Rustup</h3>
+<section id="slide-org2066729">
+<h3 id="org2066729">Rustup</h3>
 <p>
 Gestión de versiones y herramientas del lenguaje
 </p>
 </section>
-<section id="slide-org2cde083">
-<h4 id="org2cde083">Descarga</h4>
+<section id="slide-orga47c424">
+<h4 id="orga47c424">Descarga</h4>
 <p>
 Desde <a href="https://rustup.rs">https://rustup.rs</a>
 </p>
@@ -140,8 +140,8 @@ Desde <a href="https://rustup.rs">https://rustup.rs</a>
 </div>
 
 </section>
-<section id="slide-org5ba060f">
-<h4 id="org5ba060f">Comandos importantes</h4>
+<section id="slide-org34689ef">
+<h4 id="org34689ef">Comandos importantes</h4>
 <pre  class="example">
 # Installation of a toolchain
 $ rustup install stable
@@ -166,8 +166,8 @@ $ rustup component list|add
 </pre>
 
 </section>
-<section id="slide-orge3dc1f2">
-<h3 id="orge3dc1f2">Compilador</h3>
+<section id="slide-org88f87e8">
+<h3 id="org88f87e8">Compilador</h3>
 <div class="org-src-container">
 
 <pre><code class=" sh" >rustc helloworld.rs
@@ -175,13 +175,20 @@ $ rustup component list|add
 </div>
 
 </section>
-<section id="slide-org1cccbce">
-<h3 id="org1cccbce">Cargo</h3>
-<div class="outline-text-3" id="text-org1cccbce">
+<section id="slide-org5bc5268">
+<h4 id="org5bc5268">Ejemplo</h4>
+<p>
+Hello world!
+</p>
+
+</section>
+<section id="slide-org45dbf76">
+<h3 id="org45dbf76">Cargo</h3>
+<div class="outline-text-3" id="text-org45dbf76">
 </div>
 </section>
-<section id="slide-orgcb58c9b">
-<h4 id="orgcb58c9b">Build system</h4>
+<section id="slide-org814e31d">
+<h4 id="org814e31d">Build system</h4>
 <div class="org-src-container">
 
 <pre><code class=" sh" >cargo init
@@ -191,8 +198,8 @@ cargo run
 </div>
 
 </section>
-<section id="slide-org4d6c074">
-<h4 id="org4d6c074">Gestor de paquetes, dependencias</h4>
+<section id="slide-org370b371">
+<h4 id="org370b371">Gestor de paquetes, dependencias</h4>
 <div class="org-src-container">
 
 <pre><code class=" sh" >cat Cargo.toml Cargo.lock
@@ -200,8 +207,8 @@ cargo run
 </div>
 
 </section>
-<section id="slide-org190bc99">
-<h4 id="org190bc99">Gestor de herramientas</h4>
+<section id="slide-orgb00f129">
+<h4 id="orgb00f129">Gestor de herramientas</h4>
 <div class="org-src-container">
 
 <pre><code class=" sh" >cargo install cargo-tree
@@ -211,8 +218,8 @@ cargo run
 </section>
 </section>
 <section>
-<section id="slide-org1ce8944">
-<h2 id="org1ce8944">Proyecto</h2>
+<section id="slide-org45ddcc6">
+<h2 id="org45ddcc6">Proyecto</h2>
 <p>
 Podemos usar <code>code</code>, <code>vim</code>, <code>emacs</code>, <code>atom</code>, <code>intellij</code>, etc.
 </p>
@@ -227,19 +234,19 @@ ${EDITOR} .
 </section>
 </section>
 <section>
-<section id="slide-org58bf4d7">
-<h2 id="org58bf4d7">Sintaxis</h2>
+<section id="slide-org872fccd">
+<h2 id="org872fccd">Sintaxis</h2>
 <p>
 Sintaxis muy familiar a C++
 </p>
 </section>
-<section id="slide-org8a8164a">
-<h3 id="org8a8164a">Básicos</h3>
-<div class="outline-text-3" id="text-org8a8164a">
+<section id="slide-org40561ea">
+<h3 id="org40561ea">Básicos</h3>
+<div class="outline-text-3" id="text-org40561ea">
 </div>
 </section>
-<section id="slide-org8d47d9b">
-<h4 id="org8d47d9b">Enteros</h4>
+<section id="slide-orgb12f790">
+<h4 id="orgb12f790">Enteros</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >let x: i8    = 0; 
@@ -249,24 +256,24 @@ let x: usize = 0; // |
 </code></pre>
 </div>
 </section>
-<section id="slide-orga500d8b">
-<h4 id="orga500d8b">Flotantes</h4>
+<section id="slide-org3f4710f">
+<h4 id="org3f4710f">Flotantes</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >let x: f32 = 0; 
 </code></pre>
 </div>
 </section>
-<section id="slide-orge86aa41">
-<h4 id="orge86aa41">Arrays</h4>
+<section id="slide-orgbd94cb4">
+<h4 id="orgbd94cb4">Arrays</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >let x: [usize; 6] = [1,2,3,4,5,6];
 </code></pre>
 </div>
 </section>
-<section id="slide-orga712e9e">
-<h4 id="orga712e9e">Slices</h4>
+<section id="slide-orga648c49">
+<h4 id="orga648c49">Slices</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >let x: [usize; 6] = [1,2,3,4,5,6];
@@ -277,8 +284,8 @@ for i in y {
 </code></pre>
 </div>
 </section>
-<section id="slide-org14f8bf3">
-<h4 id="org14f8bf3">Tipo Unidad</h4>
+<section id="slide-org5eaab5c">
+<h4 id="org5eaab5c">Tipo Unidad</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >fn main() -&gt; () {
@@ -286,22 +293,10 @@ for i in y {
 }
 </code></pre>
 </div>
-</section>
-<section id="slide-orge820e60">
-<h3 id="orge820e60">Funciones!!!</h3>
-<div class="org-src-container">
-
-<pre><code class=" rust" >fn function_name(param1: TypeConstructor&lt;Type&gt;) -&gt; ReturnType {
-    // ...
-    return_value // NOTA: No hay punto y coma
-                 // para return implícito
-}
-</code></pre>
-</div>
 
 </section>
-<section id="slide-org8912075">
-<h3 id="org8912075">Estructuras</h3>
+<section id="slide-org81f5aff">
+<h3 id="org81f5aff">Estructuras</h3>
 <p>
 Definición:
 </p>
@@ -327,8 +322,8 @@ Creación:
 </div>
 
 </section>
-<section id="slide-org6289953">
-<h3 id="org6289953">Enums</h3>
+<section id="slide-org0b22add">
+<h3 id="org0b22add">Enums</h3>
 <p>
 Los de toda la vida:
 </p>
@@ -357,8 +352,435 @@ Los que contienen algo más:
 </div>
 
 </section>
-<section id="slide-orgef74ad8">
-<h3 id="orgef74ad8">Match</h3>
+<section id="slide-org39a4344">
+<h3 id="org39a4344">Funciones!!!</h3>
+<div class="org-src-container">
+
+<pre><code class=" rust" >fn function_name(param1: TypeConstructor&lt;Type&gt;) -&gt; ReturnType {
+    // ...
+    return_value // NOTA: No hay punto y coma
+                 // para return implícito
+}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org2686563">
+<h3 id="org2686563">Métodos</h3>
+<div class="org-src-container">
+
+<pre><code class=" rust" >impl Alumno {
+    fn new(name: String, years: u64) -&gt; Alumno {
+        Alumno {
+            name: name,
+            years_til_grad: years,
+        }
+    }
+
+    fn graduation_year(&amp;self, current_year: u64) -&gt; u64 {
+        current_year + self.years_til_grad
+    }
+}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org38d1f86">
+<h3 id="org38d1f86">Ejemplo</h3>
+<p>
+Ejemplo graduación
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org999a625">
+<h2 id="org999a625">Match</h2>
+<p>
+Un <code>switch</code> en esteroides
+</p>
+<div class="org-src-container">
+
+<pre><code class=" rust" >let mut args = std::env::args();
+
+match args.nth(1) {
+    Some(arg) =&gt; println!("Argumento 1: {}", arg),
+    None =&gt; println!("No hay argumentos"),
+}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org556b039">
+<h3 id="org556b039">Más usos</h3>
+<div class="org-src-container">
+
+<pre><code class=" rust" >let mut args = std::env::args();
+
+match args.nth(1) {
+    Some("arg") =&gt; println!("Argumento 1 es arg"),
+    _ =&gt; println!("El argumento 1 no es arg o no hay argumento 1"),
+}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orga7c1168">
+<h2 id="orga7c1168">Excepciones</h2>
+<p>
+Nope, we don't do that here
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd085865">
+<h2 id="orgd085865">NULL</h2>
+<p>
+tampoco
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org043603e">
+<h2 id="org043603e">Constructores y destructores</h2>
+<p>
+Tampoco los tiene
+</p>
+
+</section>
+<section id="slide-orgf94e309">
+<h3 id="orgf94e309">Espera, me habías dicho que podía hacer OOP</h3>
+<ul>
+<li>Rust no permite tener valores no inicializados</li>
+<li>Por convención hay un método estático <code>new()</code></li>
+<li>Los destructores se implementan mediante la interfaz <code>drop</code></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgd7c3152">
+<h2 id="orgd7c3152">Sistema de <code>Ownership</code></h2>
+<p>
+Cuatro Reglas:
+</p>
+<ul>
+<li>Solo hay un propietario</li>
+<li>La posesión puede ser traspasada</li>
+<li>El propietario es el responsable de devolver los recursos</li>
+<li>El propietario tiene todo el poder sobre los datos y puede mutarlos</li>
+
+</ul>
+
+</section>
+<section id="slide-org7cfa7af">
+<h3 id="org7cfa7af">Implicaciones</h3>
+<ul>
+<li>Fundamental para Rust</li>
+<li>Se comprueban al compilar</li>
+<li>Son extensibles</li>
+
+</ul>
+
+</section>
+<section id="slide-orgce40094">
+<h3 id="orgce40094">Ejemplo</h3>
+<div class="outline-text-3" id="text-orgce40094">
+</div>
+</section>
+<section id="slide-org7db838d">
+<h4 id="org7db838d">Parte 1</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >#[derive(Debug)]
+struct Dot {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let dot = Dot { x: 1, y: 2 };
+    pacman(dot);
+}
+
+fn pacman(dot: Dot) {
+    println!("Eating {:?}", dot);
+}
+</code></pre>
+</div>
+
+<p>
+<code>dot</code> en <code>main</code> es la propietaria de <code>Dot {x:1,y:2}</code>
+</p>
+
+</section>
+<section id="slide-orgecb5490">
+<h4 id="orgecb5490">Y si volvemos a usar dot??</h4>
+
+</section>
+<section id="slide-org85b34d7">
+<h4 id="org85b34d7">Parte 2</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >#[derive(Debug)]
+struct Dot {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let dot = Dot { x: 1, y: 2 };
+    pacman(dot);
+    pacman(dot);
+}
+
+fn pacman(dot: Dot) {
+    println!("Eating {:?}", dot);
+}
+</code></pre>
+</div>
+
+
+</section>
+<section id="slide-org6cf2f28">
+<h4 id="org6cf2f28">No se puede!</h4>
+<p>
+<code>pacman</code> ha consumido el valor de dot
+</p>
+<ul>
+<li>el valor se ha movido</li>
+<li>dot ya no es el propietario y no puede usar el valor</li>
+
+</ul>
+
+</section>
+<section id="slide-orge471799">
+<h4 id="orge471799">Solución (bueno, más o menos)</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >#[derive(Debug, Clone)]
+struct Dot {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let dot = Dot { x: 1, y: 2 };
+    pacman(dot.clone());
+    pacman(dot);
+}
+
+fn pacman(dot: Dot) {
+    println!("Eating {:?}", dot);
+}
+</code></pre>
+</div>
+
+<p>
+<code>.clone()</code> implica coste a la hora de copiar los datos
+</p>
+<ul>
+<li>Clonar una lista es caro</li>
+
+</ul>
+
+</section>
+<section id="slide-org119c360">
+<h4 id="org119c360">Copy</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >#[derive(Debug, Clone, Copy)]
+//---------------------^^^^--
+struct Dot {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let dot = Dot { x: 1, y: 2 };
+    pacman(dot);
+    pacman(dot);
+}
+
+fn pacman(dot: Dot) {
+    println!("Eating {:?}", dot);
+}
+</code></pre>
+</div>
+
+<p>
+Ahora si funciona
+</p>
+
+</section>
+<section id="slide-org45a48ad">
+<h4 id="org45a48ad">Copy vs Clone</h4>
+<ul>
+<li>Clone es explícito</li>
+<li>Copy es para:
+<ul>
+<li>Datos que se pueden copiar rápido (<code>memcpy</code>)</li>
+<li>Está permitido copiarlos (No un descriptor de archivo)</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orga67df8f">
+<h3 id="orga67df8f">Quiz time!</h3>
+<div class="outline-text-3" id="text-orga67df8f">
+</div>
+</section>
+<section id="slide-org514cb0d">
+<h4 id="org514cb0d">Que pasa si volvemos a llamar <code>use_file</code> con <code>file</code>?</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >use std::fs::File;
+
+fn main() {
+    let file = File::open("test").unwrap();
+
+    use_file(file);
+}
+
+fn use_file(f: File) {
+    // File drops here
+}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org0e3ee10">
+<h4 id="org0e3ee10">Como sería la implementación?</h4>
+<p>
+Si drop es la función que desaloja un valor de forma inmediata
+</p>
+
+<div class="org-src-container">
+
+<pre><code class=" rust" >use std::fs::File;
+
+fn main() {
+    let file = File::open("test").unwrap();
+    let buffer = read_from(&amp;file);
+    drop(file);
+    // do something long
+}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org9644e07">
+<h4 id="org9644e07">Solución</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >#[inline]
+fn drop&lt;T&gt;(_: T) {
+    // Toma propiedad e impide reutilización
+    // del valor cuando se acaba el scope
+}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgb7b10a1">
+<h2 id="orgb7b10a1">También puedes prestar</h2>
+<p>
+Si solo usamos copy, clone y transferimos propiedad,
+se hace muy ineficaz o no podemos reusar los valores
+</p>
+
+</section>
+<section id="slide-org9fff0b5">
+<h3 id="org9fff0b5">Ejemplo</h3>
+<div class="org-src-container">
+
+<pre><code class=" rust" >#[derive(Debug)]
+struct Point {
+    x: i32,
+    y: i32 
+}
+
+fn main() {
+    let mut point = Point { x: 1, y: 2 };
+    inspect(&amp;point);
+    point.x = 2;
+    inspect(&amp;point);
+}
+
+fn inspect(p: &amp;Point) {
+    println!("{:?}", p);
+}
+</code></pre>
+</div>
+
+
+</section>
+<section id="slide-org261f4b1">
+<h4 id="org261f4b1">Siempre podemos prestar si nos lo devuelven como lo dimos</h4>
+
+</section>
+<section id="slide-orge0b412b">
+<h4 id="orge0b412b">Pero, si queremos cambiar las cosas?</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >#[derive(Debug)]
+struct Point {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let mut point = Point { x: 1, y: 2 };
+    inspect(&amp;point);
+    move_point(&amp;mut point, 3, 3);
+    inspect(&amp;point);
+}
+
+fn move_point(p: &amp;mut Point, x: i32, y: i32) {
+    p.x = x;
+    p.y = y;
+}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org48ecba0">
+<h4 id="org48ecba0">Solo podemos prestar mutáblemente una vez</h4>
+
+</section>
+<section id="slide-orgb04f778">
+<h3 id="orgb04f778">Las reglas</h3>
+<ul>
+<li>Se puede prestar inmutablemente cuanto quieras</li>
+<li>Pero solo puede haber un préstamo mutable</li>
+
+</ul>
+
+<p>
+Se mantiene la propiedad en el sitio de llamada y
+no se desaloja hasta que el propietario se va del
+contexto.
+</p>
+
+</section>
+<section id="slide-org5aae45a">
+<h4 id="org5aae45a">Por qué estas reglas?</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >fn push_all(on: &amp;mut Vec&lt;u8&gt;, from: &amp;Vec&lt;u8&gt;) {
+    // cuerpo
+}
+</code></pre>
+</div>
 </section>
 </section>
 </div>

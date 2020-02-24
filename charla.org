@@ -98,6 +98,9 @@ $ rustup component list|add
      rustc helloworld.rs
    #+end_src
    
+*** Ejemplo
+    Hello world!
+    
 ** Cargo
 *** Build system
    #+begin_src sh
@@ -219,5 +222,254 @@ $ rustup component list|add
      }
    #+end_src
    
-** Match
+** Ejemplo
+   Ejemplo graduación
    
+* Match
+  Un ~switch~ en esteroides
+  #+begin_src rust
+    let mut args = std::env::args();
+
+    match args.nth(1) {
+        Some(arg) => println!("Argumento 1: {}", arg),
+        None => println!("No hay argumentos"),
+    }
+  #+end_src
+   
+** Más usos
+  #+begin_src rust
+    let mut args = std::env::args();
+
+    match args.nth(1) {
+        Some("arg") => println!("Argumento 1 es arg"),
+        _ => println!("El argumento 1 no es arg o no hay argumento 1"),
+    }
+  #+end_src
+
+* Excepciones
+  Nope, we don't do that here
+
+* NULL
+  tampoco
+
+* Constructores y destructores
+  Tampoco los tiene
+
+** Espera, me habías dicho que podía hacer OOP
+   - Rust no permite tener valores no inicializados
+   - Por convención hay un método estático ~new()~
+   - Los destructores se implementan mediante la interfaz ~drop~
+   
+* Sistema de ~Ownership~
+  Cuatro Reglas:
+  - Solo hay un propietario
+  - La posesión puede ser traspasada
+  - El propietario es el responsable de devolver los recursos
+  - El propietario tiene todo el poder sobre los datos y puede mutarlos
+    
+** Implicaciones
+   - Fundamental para Rust
+   - Se comprueban al compilar
+   - Son extensibles
+   
+** Ejemplo
+*** Parte 1
+   #+begin_src rust
+     #[derive(Debug)]
+     struct Dot {
+         x: i32,
+         y: i32
+     }
+
+     fn main() {
+         let dot = Dot { x: 1, y: 2 };
+         pacman(dot);
+     }
+
+     fn pacman(dot: Dot) {
+         println!("Eating {:?}", dot);
+     }
+   #+end_src 
+   
+   ~dot~ en ~main~ es la propietaria de ~Dot {x:1,y:2}~
+
+*** Y si volvemos a usar dot??
+
+*** Parte 2
+    #+begin_src rust
+      #[derive(Debug)]
+      struct Dot {
+          x: i32,
+          y: i32
+      }
+
+      fn main() {
+          let dot = Dot { x: 1, y: 2 };
+          pacman(dot);
+          pacman(dot);
+      }
+
+      fn pacman(dot: Dot) {
+          println!("Eating {:?}", dot);
+      }
+    #+end_src
+    
+    
+*** No se puede!
+    ~pacman~ ha consumido el valor de dot
+    - el valor se ha movido
+    - dot ya no es el propietario y no puede usar el valor
+
+*** Solución (bueno, más o menos)
+    #+begin_src rust
+      #[derive(Debug, Clone)]
+      struct Dot {
+          x: i32,
+          y: i32
+      }
+
+      fn main() {
+          let dot = Dot { x: 1, y: 2 };
+          pacman(dot.clone());
+          pacman(dot);
+      }
+
+      fn pacman(dot: Dot) {
+          println!("Eating {:?}", dot);
+      }
+    #+end_src
+
+    ~.clone()~ implica coste a la hora de copiar los datos
+    - Clonar una lista es caro
+
+*** Copy
+    #+begin_src rust
+      #[derive(Debug, Clone, Copy)]
+      //---------------------^^^^--
+      struct Dot {
+          x: i32,
+          y: i32
+      }
+
+      fn main() {
+          let dot = Dot { x: 1, y: 2 };
+          pacman(dot);
+          pacman(dot);
+      }
+
+      fn pacman(dot: Dot) {
+          println!("Eating {:?}", dot);
+      }
+    #+end_src
+
+    Ahora si funciona
+
+*** Copy vs Clone
+    - Clone es explícito
+    - Copy es para:
+      - Datos que se pueden copiar rápido (~memcpy~)
+      - Está permitido copiarlos (No un descriptor de archivo)
+
+** Quiz time!
+*** Que pasa si volvemos a llamar ~use_file~ con ~file~?
+    #+begin_src rust
+      use std::fs::File;
+
+      fn main() {
+          let file = File::open("test").unwrap();
+
+          use_file(file);
+      }
+
+      fn use_file(f: File) {
+          // File drops here
+      }
+    #+end_src
+    
+*** Como sería la implementación?
+    Si drop es la función que desaloja un valor de forma inmediata
+    
+    #+begin_src rust
+      use std::fs::File;
+
+      fn main() {
+          let file = File::open("test").unwrap();
+          let buffer = read_from(&file);
+          drop(file);
+          // do something long
+      }
+    #+end_src
+
+*** Solución
+    #+begin_src rust
+      #[inline]
+      fn drop<T>(_: T) {
+          // Toma propiedad e impide reutilización
+          // del valor cuando se acaba el scope
+      }
+    #+end_src
+
+* También puedes prestar
+  Si solo usamos copy, clone y transferimos propiedad,
+  se hace muy ineficaz o no podemos reusar los valores
+
+** Ejemplo
+   #+begin_src rust
+     #[derive(Debug)]
+     struct Point {
+         x: i32,
+         y: i32 
+     }
+
+     fn main() {
+         let mut point = Point { x: 1, y: 2 };
+         inspect(&point);
+         point.x = 2;
+         inspect(&point);
+     }
+
+     fn inspect(p: &Point) {
+         println!("{:?}", p);
+     }
+   #+end_src
+
+   
+*** Siempre podemos prestar si nos lo devuelven como lo dimos
+
+*** Pero, si queremos cambiar las cosas?
+    #+begin_src rust
+      #[derive(Debug)]
+      struct Point {
+          x: i32,
+          y: i32
+      }
+
+      fn main() {
+          let mut point = Point { x: 1, y: 2 };
+          inspect(&point);
+          move_point(&mut point, 3, 3);
+          inspect(&point);
+      }
+
+      fn move_point(p: &mut Point, x: i32, y: i32) {
+          p.x = x;
+          p.y = y;
+      }
+    #+end_src
+
+*** Solo podemos prestar mutáblemente una vez
+
+** Las reglas
+   - Se puede prestar inmutablemente cuanto quieras
+   - Pero solo puede haber un préstamo mutable
+     
+   Se mantiene la propiedad en el sitio de llamada y
+   no se desaloja hasta que el propietario se va del
+   contexto.
+
+*** Por qué estas reglas?
+    #+begin_src rust
+      fn push_all(on: &mut Vec<u8>, from: &Vec<u8>) {
+          // cuerpo
+      }
+    #+end_src 
