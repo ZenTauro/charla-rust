@@ -246,12 +246,6 @@ $ rustup component list|add
     }
   #+end_src
 
-* Excepciones
-  Nope, we don't do that here
-
-* NULL
-  tampoco
-
 * Constructores y destructores
   Tampoco los tiene
 
@@ -260,6 +254,65 @@ $ rustup component list|add
    - Por convención hay un método estático ~new()~
    - Los destructores se implementan mediante la interfaz ~drop~
    
+* NULL
+  tampoco
+
+* Excepciones
+  Nope, we don't do that here
+* Pero, sin excepciones...
+  Como manejamos los errores?
+  
+** Mediante el tipo ~Result<T,E>~
+   Si la función puede fallar, retorna un ~Result~
+   #+begin_src rust
+     fn this_can_fail(succeeds: bool) -> Result<String, String> {
+         if succeeds {
+             Ok(String::from("Success"))
+         } else {
+             Err(String::from("Error"))
+         }
+     }
+
+     fn main() {
+         let outcome = this_can_fail(true);
+         println!("{:?}", outcome);
+     }
+   #+end_src
+   
+** Usando match
+   #+begin_src rust
+fn main() {
+    match this_can_fail(false) {
+        Ok(val) => println!("Success: {}", val),
+        Err(err) => println!("Error: {}", err),
+    }
+}
+   #+end_src
+   
+** Mediante ~?~
+   #+begin_src rust
+fn multiple_possible_failures() -> Result<String,String> {
+    this_can_fail(true)?;
+    println!("After 1st potential error.");
+    this_can_fail(false)?;
+    println!("After 2nd potential error.");
+    Ok(String::from("All done."))
+}
+   #+end_src
+
+** Result envuelve tipos
+   - Se puede pasar de Result<T,E> -> Result<U,E>
+   - Se puede pasar de Result<T,E> -> Result<T,X>
+   #+begin_src rust
+     fn main() {
+         let some_result = this_can_fail(true);
+         // Only done if `some_result` is an `Ok` Variant.
+         let mapped_result = some_result.map(|val| val.len());
+         let mapped_result = some_result.map_err(|val| val.len());
+         println!("{:?}", mapped_result);
+     }
+   #+end_src
+
 * Sistema de ~Ownership~
   Cuatro Reglas:
   - Solo hay un propietario
@@ -473,3 +526,11 @@ $ rustup component list|add
           // cuerpo
       }
     #+end_src 
+
+** Préstamos (Borrows) son Referencias
+   Hay que desreferenciarlas de vez en cuando
+   #+begin_src rust
+    let number: &mut i32 = &mut 4;
+    *number = 10;
+    println!("{}", number);
+   #+end_src
