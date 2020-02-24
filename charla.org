@@ -1,0 +1,223 @@
+#+TITLE: Rust
+#+REVEAL_TRANS: fade
+#+OPTIONS: reveal-control
+#+OPTIONS: toc:nil
+#+OPTIONS: num:nil
+#+REVEAL_THEME: league
+#+REVEAL_PLUGINS: (highlight)
+#+REVEAL_HIGHLIGHT_CSS: %r/lib/css/monokai.css
+
+
+* Rust
+  [[./img/rust_logo.svg]]
+
+** Que es Rust?
+   Rust es un lenguaje de programación con un enfoque en
+   seguridad, concurrencia y "velocidad de ejecución".
+
+** Ejemplo C
+   #+begin_src c
+     #include <stdlib.h>
+     #include <stdio.h>
+
+     void rellenar(int* nums);
+
+     int main() {
+       int *nums = malloc(32 * sizeof(int)); // Asignar memoria
+       if (nums == NULL) {                   // Comprobar errores
+         return 1;
+       }
+       rellenar(nums);
+       for (usize_t i=0; i < 32; i++) {      // Iterar el array
+         printf("%d\n", nums[i]);
+       }
+       free(nums);                           // Liberar memoria
+       return 0;                             // Return explicito
+     }
+   #+end_src
+
+** Ejemplo Rust
+
+   #+begin_src rust
+     use std::vec::Vec;
+
+     fn main() {
+       let nums: vec<isize> = Vec::with_capacity(32);
+       rellenar(&nums);
+       nums.for_each(|i| {
+         println!("{}", i);
+       });
+     }
+   #+end_src
+
+* Por qué Rust?
+  - Evitar (muchos) bugs de memoria
+  - Mantenibilidad y escalabilidad
+  - Sistema de tipos
+    - Interfaces
+    - Abstracciones
+  - Gestión de memoria semiautomática
+    - RAII
+    - Borrow Checker
+
+* Instalación
+** Rustup
+   Gestión de versiones y herramientas del lenguaje
+*** Descarga
+    Desde https://rustup.rs
+   #+begin_src sh
+     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   #+end_src
+    
+*** Comandos importantes
+   #+begin_src 
+# Installation of a toolchain
+$ rustup install stable
+
+# Selection of a default toolchain
+$ rustup default stable
+
+# Override the default toolchain in your directory
+$ rustup override stable
+
+# Display documentation in browser
+$ rustup doc [--std]
+
+# List supported targets
+$ rustup target list
+
+# Add and install a target to the toolchain
+$ rustup target add <target>
+
+# List and add components
+$ rustup component list|add
+   #+end_src
+   
+** Compilador
+   #+begin_src sh
+     rustc helloworld.rs
+   #+end_src
+   
+** Cargo
+*** Build system
+   #+begin_src sh
+     cargo init
+     cargo build
+     cargo run
+   #+end_src
+
+*** Gestor de paquetes, dependencias
+   #+begin_src sh
+     cat Cargo.toml Cargo.lock
+   #+end_src
+
+*** Gestor de herramientas
+   #+begin_src sh
+     cargo install cargo-tree
+   #+end_src
+
+* Proyecto
+  Podemos usar ~code~, ~vim~, ~emacs~, ~atom~, ~intellij~, etc.
+  #+begin_src sh
+    cargo init hello_rust
+    cd hello_rust
+    ${EDITOR} .
+  #+end_src
+
+* Sintaxis
+  Sintaxis muy familiar a C++
+** Básicos
+*** Enteros
+   #+begin_src rust
+     let x: i8    = 0; 
+     let x: u8    = 0; // Ensombrecimiento de variable
+     let x: i64   = 0; // |
+     let x: usize = 0; // |
+   #+end_src
+*** Flotantes
+   #+begin_src rust
+     let x: f32 = 0; 
+   #+end_src
+*** Arrays
+    #+begin_src rust
+     let x: [usize; 6] = [1,2,3,4,5,6];
+    #+end_src
+*** Slices
+    #+begin_src rust
+      let x: [usize; 6] = [1,2,3,4,5,6];
+      let y: &[usize] = &x[1..5];
+      for i in y {
+        println!("{}", i);
+      }
+    #+end_src
+*** Tipo Unidad
+    #+begin_src rust
+      fn main() -> () {
+        println!("Hello world");
+      }
+    #+end_src
+    
+** Estructuras
+   Definición:
+   #+begin_src rust
+     struct Alumno {
+       nombre: String,
+       years_til_grad: u64,
+     }
+   #+end_src
+   
+   Creación:
+   #+begin_src rust
+     let alumno = Alumno {
+         nombre: "Pepe".to_owned(),
+         years_til_grad: 999
+     };
+   #+end_src
+
+** Enums
+   Los de toda la vida:
+   #+begin_src rust
+     enum Color {
+         Azul,
+         Amarillo,
+         Rojo,
+         Verde,
+         Naranja,
+     }
+   #+end_src
+
+   Los que contienen algo más:
+   #+begin_src rust
+     enum Result<T, E> {
+        Ok(T),
+        Err(E),
+     }
+   #+end_src
+
+** Funciones!!!
+  #+begin_src rust
+    fn function_name(param1: TypeConstructor<Type>) -> ReturnType {
+        // ...
+        return_value // NOTA: No hay punto y coma
+                     // para return implícito
+    }
+  #+end_src
+  
+** Métodos
+   #+begin_src rust
+     impl Alumno {
+         fn new(name: String, years: u64) -> Alumno {
+             Alumno {
+                 name: name,
+                 years_til_grad: years,
+             }
+         }
+    
+         fn graduation_year(&self, current_year: u64) -> u64 {
+             current_year + self.years_til_grad
+         }
+     }
+   #+end_src
+   
+** Match
+   

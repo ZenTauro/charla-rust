@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Rust</title>
+<meta name="author" content="zentauro"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/css/theme/league.css" id="theme"/>
+<link rel="stylesheet" href="./reveal.js/lib/css/monokai.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1 class="title">Rust</h1><h2 class="author">zentauro</h2><p class="date">Created: 2020-02-24 Mon 20:39</p>
+</section>
+
+
+<section>
+<section id="slide-orgf351e3f">
+<h2 id="orgf351e3f">Rust</h2>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="./img/rust_logo.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+</section>
+<section id="slide-org3b0a49d">
+<h3 id="org3b0a49d">Que es Rust?</h3>
+<p>
+Rust es un lenguaje de programación con un enfoque en
+seguridad, concurrencia y "velocidad de ejecución".
+</p>
+
+</section>
+<section id="slide-org525786c">
+<h3 id="org525786c">Ejemplo C</h3>
+<div class="org-src-container">
+
+<pre><code class=" c" >#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+void rellenar(int* nums);
+
+int main() {
+  int *nums = malloc(32 * sizeof(int)); // Asignar memoria
+  if (nums == NULL) {                   // Comprobar errores
+    return 1;
+  }
+  rellenar(nums);
+  for (usize_t i=0; i &lt; 32; i++) {      // Iterar el array
+    printf("%d\n", nums[i]);
+  }
+  free(nums);                           // Liberar memoria
+  return 0;                             // Return explicito
+}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgfad6027">
+<h3 id="orgfad6027">Ejemplo Rust</h3>
+<div class="org-src-container">
+
+<pre><code class=" rust" >use std::vec::Vec;
+
+fn main() {
+  let nums: vec&lt;isize&gt; = Vec::with_capacity(32);
+  rellenar(&amp;nums);
+  nums.for_each(|i| {
+    println!("{}", i);
+  });
+}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgade6d7b">
+<h2 id="orgade6d7b">Por qué Rust?</h2>
+<ul>
+<li>Evitar (muchos) bugs de memoria</li>
+<li>Mantenibilidad y escalabilidad</li>
+<li>Sistema de tipos
+<ul>
+<li>Interfaces</li>
+<li>Abstracciones</li>
+
+</ul></li>
+<li>Gestión de memoria semiautomática
+<ul>
+<li>RAII</li>
+<li>Borrow Checker</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org17d4d9a">
+<h2 id="org17d4d9a">Instalación</h2>
+<div class="outline-text-2" id="text-org17d4d9a">
+</div>
+</section>
+<section id="slide-org039a4d4">
+<h3 id="org039a4d4">Rustup</h3>
+<p>
+Gestión de versiones y herramientas del lenguaje
+</p>
+</section>
+<section id="slide-org2cde083">
+<h4 id="org2cde083">Descarga</h4>
+<p>
+Desde <a href="https://rustup.rs">https://rustup.rs</a>
+</p>
+<div class="org-src-container">
+
+<pre><code class=" sh" >curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org5ba060f">
+<h4 id="org5ba060f">Comandos importantes</h4>
+<pre  class="example">
+# Installation of a toolchain
+$ rustup install stable
+
+# Selection of a default toolchain
+$ rustup default stable
+
+# Override the default toolchain in your directory
+$ rustup override stable
+
+# Display documentation in browser
+$ rustup doc [--std]
+
+# List supported targets
+$ rustup target list
+
+# Add and install a target to the toolchain
+$ rustup target add &lt;target&gt;
+
+# List and add components
+$ rustup component list|add
+</pre>
+
+</section>
+<section id="slide-orge3dc1f2">
+<h3 id="orge3dc1f2">Compilador</h3>
+<div class="org-src-container">
+
+<pre><code class=" sh" >rustc helloworld.rs
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org1cccbce">
+<h3 id="org1cccbce">Cargo</h3>
+<div class="outline-text-3" id="text-org1cccbce">
+</div>
+</section>
+<section id="slide-orgcb58c9b">
+<h4 id="orgcb58c9b">Build system</h4>
+<div class="org-src-container">
+
+<pre><code class=" sh" >cargo init
+cargo build
+cargo run
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org4d6c074">
+<h4 id="org4d6c074">Gestor de paquetes, dependencias</h4>
+<div class="org-src-container">
+
+<pre><code class=" sh" >cat Cargo.toml Cargo.lock
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org190bc99">
+<h4 id="org190bc99">Gestor de herramientas</h4>
+<div class="org-src-container">
+
+<pre><code class=" sh" >cargo install cargo-tree
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org1ce8944">
+<h2 id="org1ce8944">Proyecto</h2>
+<p>
+Podemos usar <code>code</code>, <code>vim</code>, <code>emacs</code>, <code>atom</code>, <code>intellij</code>, etc.
+</p>
+<div class="org-src-container">
+
+<pre><code class=" sh" >cargo init hello_rust
+cd hello_rust
+${EDITOR} .
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org58bf4d7">
+<h2 id="org58bf4d7">Sintaxis</h2>
+<p>
+Sintaxis muy familiar a C++
+</p>
+</section>
+<section id="slide-org8a8164a">
+<h3 id="org8a8164a">Básicos</h3>
+<div class="outline-text-3" id="text-org8a8164a">
+</div>
+</section>
+<section id="slide-org8d47d9b">
+<h4 id="org8d47d9b">Enteros</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >let x: i8    = 0; 
+let x: u8    = 0; // Ensombrecimiento de variable
+let x: i64   = 0; // |
+let x: usize = 0; // |
+</code></pre>
+</div>
+</section>
+<section id="slide-orga500d8b">
+<h4 id="orga500d8b">Flotantes</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >let x: f32 = 0; 
+</code></pre>
+</div>
+</section>
+<section id="slide-orge86aa41">
+<h4 id="orge86aa41">Arrays</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >let x: [usize; 6] = [1,2,3,4,5,6];
+</code></pre>
+</div>
+</section>
+<section id="slide-orga712e9e">
+<h4 id="orga712e9e">Slices</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >let x: [usize; 6] = [1,2,3,4,5,6];
+let y: &amp;[usize] = &amp;x[1..5];
+for i in y {
+  println!("{}", i);
+}
+</code></pre>
+</div>
+</section>
+<section id="slide-org14f8bf3">
+<h4 id="org14f8bf3">Tipo Unidad</h4>
+<div class="org-src-container">
+
+<pre><code class=" rust" >fn main() -&gt; () {
+  println!("Hello world");
+}
+</code></pre>
+</div>
+</section>
+<section id="slide-orge820e60">
+<h3 id="orge820e60">Funciones!!!</h3>
+<div class="org-src-container">
+
+<pre><code class=" rust" >fn function_name(param1: TypeConstructor&lt;Type&gt;) -&gt; ReturnType {
+    // ...
+    return_value // NOTA: No hay punto y coma
+                 // para return implícito
+}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org8912075">
+<h3 id="org8912075">Estructuras</h3>
+<p>
+Definición:
+</p>
+<div class="org-src-container">
+
+<pre><code class=" rust" >struct Alumno {
+  nombre: String,
+  years_til_grad: u64,
+}
+</code></pre>
+</div>
+
+<p>
+Creación:
+</p>
+<div class="org-src-container">
+
+<pre><code class=" rust" >let alumno = Alumno {
+    nombre: "Pepe".to_owned(),
+    years_til_grad: 999
+};
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org6289953">
+<h3 id="org6289953">Enums</h3>
+<p>
+Los de toda la vida:
+</p>
+<div class="org-src-container">
+
+<pre><code class=" rust" >enum Color {
+    Azul,
+    Amarillo,
+    Rojo,
+    Verde,
+    Naranja,
+}
+</code></pre>
+</div>
+
+<p>
+Los que contienen algo más:
+</p>
+<div class="org-src-container">
+
+<pre><code class=" rust" >enum Result&lt;T, E&gt; {
+   Ok(T),
+   Err(E),
+}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgef74ad8">
+<h3 id="orgef74ad8">Match</h3>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'fade', // see README of reveal.js for options
+transitionSpeed: 'default',
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+
+});
+</script>
+</body>
+</html>
