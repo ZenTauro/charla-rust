@@ -27,13 +27,13 @@
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Rust</h1><h2 class="author">zentauro</h2><p class="date">Created: 2020-02-24 Mon 22:53</p>
+<h1 class="title">Rust</h1><h2 class="author">zentauro</h2><p class="date">Created: 2020-02-25 Tue 14:48</p>
 </section>
 
 
 <section>
-<section id="slide-org7042fa4">
-<h2 id="org7042fa4">Rust</h2>
+<section id="slide-orga24a71d">
+<h2 id="orga24a71d">Rust</h2>
 
 <div class="figure">
 <p><object type="image/svg+xml" data="./img/rust_logo.svg" class="org-svg">
@@ -42,16 +42,16 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 </section>
-<section id="slide-org2162f06">
-<h3 id="org2162f06">Que es Rust?</h3>
+<section id="slide-org452845f">
+<h3 id="org452845f">Que es Rust?</h3>
 <p>
 Rust es un lenguaje de programación con un enfoque en
 seguridad, concurrencia y "velocidad de ejecución".
 </p>
 
 </section>
-<section id="slide-org81bc2f9">
-<h3 id="org81bc2f9">Ejemplo C</h3>
+<section id="slide-org268b631">
+<h3 id="org268b631">Ejemplo C</h3>
 <div class="org-src-container">
 
 <pre><code class=" c" >#include &lt;stdlib.h&gt;
@@ -75,8 +75,8 @@ int main() {
 </div>
 
 </section>
-<section id="slide-orgc6420a1">
-<h3 id="orgc6420a1">Ejemplo Rust</h3>
+<section id="slide-org43d887e">
+<h3 id="org43d887e">Ejemplo Rust</h3>
 <div class="org-src-container">
 
 <pre><code class=" rust" >use std::vec::Vec;
@@ -94,8 +94,8 @@ fn main() {
 </section>
 </section>
 <section>
-<section id="slide-org69a4be2">
-<h2 id="org69a4be2">Por qué Rust?</h2>
+<section id="slide-org8fc26ff">
+<h2 id="org8fc26ff">Por qué Rust?</h2>
 <ul>
 <li>Evitar (muchos) bugs de memoria</li>
 <li>Mantenibilidad y escalabilidad</li>
@@ -117,19 +117,19 @@ fn main() {
 </section>
 </section>
 <section>
-<section id="slide-orgd81efc5">
-<h2 id="orgd81efc5">Instalación</h2>
-<div class="outline-text-2" id="text-orgd81efc5">
+<section id="slide-org6158efd">
+<h2 id="org6158efd">Instalación</h2>
+<div class="outline-text-2" id="text-org6158efd">
 </div>
 </section>
-<section id="slide-org3b08f05">
-<h3 id="org3b08f05">Rustup</h3>
+<section id="slide-org90db335">
+<h3 id="org90db335">Rustup</h3>
 <p>
 Gestión de versiones y herramientas del lenguaje
 </p>
 </section>
-<section id="slide-orga129a04">
-<h4 id="orga129a04">Descarga</h4>
+<section id="slide-org2ada3d6">
+<h4 id="org2ada3d6">Descarga</h4>
 <p>
 Desde <a href="https://rustup.rs">https://rustup.rs</a>
 </p>
@@ -140,8 +140,8 @@ Desde <a href="https://rustup.rs">https://rustup.rs</a>
 </div>
 
 </section>
-<section id="slide-orgdb4013c">
-<h4 id="orgdb4013c">Comandos importantes</h4>
+<section id="slide-org343cbb2">
+<h4 id="org343cbb2">Comandos importantes</h4>
 <pre  class="example">
 # Installation of a toolchain
 $ rustup install stable
@@ -166,8 +166,8 @@ $ rustup component list|add
 </pre>
 
 </section>
-<section id="slide-org4bcc004">
-<h3 id="org4bcc004">Compilador</h3>
+<section id="slide-org65f3b15">
+<h3 id="org65f3b15">Compilador</h3>
 <div class="org-src-container">
 
 <pre><code class=" sh" >rustc helloworld.rs
@@ -175,20 +175,20 @@ $ rustup component list|add
 </div>
 
 </section>
-<section id="slide-org2121290">
-<h4 id="org2121290">Ejemplo</h4>
+<section id="slide-org1810f19">
+<h4 id="org1810f19">Ejemplo</h4>
 <p>
 Hello world!
 </p>
 
 </section>
-<section id="slide-org7feafa2">
-<h3 id="org7feafa2">Cargo</h3>
-<div class="outline-text-3" id="text-org7feafa2">
+<section id="slide-orgd3ae3c9">
+<h3 id="orgd3ae3c9">Cargo</h3>
+<div class="outline-text-3" id="text-orgd3ae3c9">
 </div>
 </section>
-<section id="slide-org2c3067e">
-<h4 id="org2c3067e">Build system</h4>
+<section id="slide-org7e8e360">
+<h4 id="org7e8e360">Build system</h4>
 <div class="org-src-container">
 
 <pre><code class=" sh" >cargo init
@@ -198,8 +198,8 @@ cargo run
 </div>
 
 </section>
-<section id="slide-org138bd4a">
-<h4 id="org138bd4a">Gestor de paquetes, dependencias</h4>
+<section id="slide-org43327d5">
+<h4 id="org43327d5">Gestor de paquetes, dependencias</h4>
 <div class="org-src-container">
 
 <pre><code class=" sh" >cat Cargo.toml Cargo.lock
@@ -207,8 +207,8 @@ cargo run
 </div>
 
 </section>
-<section id="slide-org9ccee6f">
-<h4 id="org9ccee6f">Gestor de herramientas</h4>
+<section id="slide-orgd2feeb0">
+<h4 id="orgd2feeb0">Gestor de herramientas</h4>
 <div class="org-src-container">
 
 <pre><code class=" sh" >cargo install cargo-tree
@@ -218,8 +218,8 @@ cargo run
 </section>
 </section>
 <section>
-<section id="slide-org76bf758">
-<h2 id="org76bf758">Proyecto</h2>
+<section id="slide-orgf3b0d59">
+<h2 id="orgf3b0d59">Proyecto</h2>
 <p>
 Podemos usar <code>code</code>, <code>vim</code>, <code>emacs</code>, <code>atom</code>, <code>intellij</code>, etc.
 </p>
@@ -234,19 +234,19 @@ ${EDITOR} .
 </section>
 </section>
 <section>
-<section id="slide-orge4c1e4d">
-<h2 id="orge4c1e4d">Sintaxis</h2>
+<section id="slide-orgbd240ff">
+<h2 id="orgbd240ff">Sintaxis</h2>
 <p>
-Sintaxis muy familiar a C++
+Sintaxis muy familiar a C++ y typescript
 </p>
 </section>
-<section id="slide-org39f24f5">
-<h3 id="org39f24f5">Básicos</h3>
-<div class="outline-text-3" id="text-org39f24f5">
+<section id="slide-orgb1c861c">
+<h3 id="orgb1c861c">Básicos</h3>
+<div class="outline-text-3" id="text-orgb1c861c">
 </div>
 </section>
-<section id="slide-org9e4bb68">
-<h4 id="org9e4bb68">Enteros</h4>
+<section id="slide-orgea85503">
+<h4 id="orgea85503">Enteros</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >let x: i8    = 0; 
@@ -256,24 +256,24 @@ let x: usize = 0; // |
 </code></pre>
 </div>
 </section>
-<section id="slide-orgf6e2225">
-<h4 id="orgf6e2225">Flotantes</h4>
+<section id="slide-orge8b362f">
+<h4 id="orge8b362f">Flotantes</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >let x: f32 = 0; 
 </code></pre>
 </div>
 </section>
-<section id="slide-org66d4654">
-<h4 id="org66d4654">Arrays</h4>
+<section id="slide-orge3d27ca">
+<h4 id="orge3d27ca">Arrays</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >let x: [usize; 6] = [1,2,3,4,5,6];
 </code></pre>
 </div>
 </section>
-<section id="slide-org1eabaa5">
-<h4 id="org1eabaa5">Slices</h4>
+<section id="slide-orgbde8e11">
+<h4 id="orgbde8e11">Slices</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >let x: [usize; 6] = [1,2,3,4,5,6];
@@ -284,8 +284,8 @@ for i in y {
 </code></pre>
 </div>
 </section>
-<section id="slide-org6605cb6">
-<h4 id="org6605cb6">Tipo Unidad</h4>
+<section id="slide-org2a07020">
+<h4 id="org2a07020">Tipo Unidad</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >fn main() -&gt; () {
@@ -295,8 +295,8 @@ for i in y {
 </div>
 
 </section>
-<section id="slide-orgd21cb0e">
-<h3 id="orgd21cb0e">Estructuras</h3>
+<section id="slide-org5ed810f">
+<h3 id="org5ed810f">Estructuras</h3>
 <p>
 Definición:
 </p>
@@ -322,8 +322,8 @@ Creación:
 </div>
 
 </section>
-<section id="slide-org159ee52">
-<h3 id="org159ee52">Enums</h3>
+<section id="slide-org794f0ee">
+<h3 id="org794f0ee">Enums</h3>
 <p>
 Los de toda la vida:
 </p>
@@ -352,8 +352,8 @@ Los que contienen algo más:
 </div>
 
 </section>
-<section id="slide-org2da95bb">
-<h3 id="org2da95bb">Funciones!!!</h3>
+<section id="slide-orga0622af">
+<h3 id="orga0622af">Funciones!!!</h3>
 <div class="org-src-container">
 
 <pre><code class=" rust" >fn function_name(param1: TypeConstructor&lt;Type&gt;) -&gt; ReturnType {
@@ -365,8 +365,8 @@ Los que contienen algo más:
 </div>
 
 </section>
-<section id="slide-org1524f66">
-<h3 id="org1524f66">Métodos</h3>
+<section id="slide-orgc2b899b">
+<h3 id="orgc2b899b">Métodos</h3>
 <div class="org-src-container">
 
 <pre><code class=" rust" >impl Alumno {
@@ -385,8 +385,8 @@ Los que contienen algo más:
 </div>
 
 </section>
-<section id="slide-org7969fbf">
-<h3 id="org7969fbf">Ejemplo</h3>
+<section id="slide-org439a4d5">
+<h3 id="org439a4d5">Ejemplo</h3>
 <p>
 Ejemplo graduación
 </p>
@@ -394,8 +394,8 @@ Ejemplo graduación
 </section>
 </section>
 <section>
-<section id="slide-org04dea34">
-<h2 id="org04dea34">Match</h2>
+<section id="slide-orgd379713">
+<h2 id="orgd379713">Match</h2>
 <p>
 Un <code>switch</code> en esteroides
 </p>
@@ -411,8 +411,8 @@ match args.nth(1) {
 </div>
 
 </section>
-<section id="slide-orgfb69ed1">
-<h3 id="orgfb69ed1">Más usos</h3>
+<section id="slide-orgefda0cc">
+<h3 id="orgefda0cc">Más usos</h3>
 <div class="org-src-container">
 
 <pre><code class=" rust" >let mut args = std::env::args();
@@ -427,15 +427,15 @@ match args.nth(1) {
 </section>
 </section>
 <section>
-<section id="slide-orgcaa4f3b">
-<h2 id="orgcaa4f3b">Constructores y destructores</h2>
+<section id="slide-orga2d5035">
+<h2 id="orga2d5035">Constructores y destructores</h2>
 <p>
-Tampoco los tiene
+No los tiene
 </p>
 
 </section>
-<section id="slide-orgb36a27f">
-<h3 id="orgb36a27f">Espera, me habías dicho que podía hacer OOP</h3>
+<section id="slide-orga714b0e">
+<h3 id="orga714b0e">Espera, me habías dicho que podía hacer OOP</h3>
 <ul>
 <li>Rust no permite tener valores no inicializados</li>
 <li>Por convención hay un método estático <code>new()</code></li>
@@ -446,8 +446,8 @@ Tampoco los tiene
 </section>
 </section>
 <section>
-<section id="slide-orge11f2ff">
-<h2 id="orge11f2ff">NULL</h2>
+<section id="slide-org53433fd">
+<h2 id="org53433fd">NULL</h2>
 <p>
 tampoco
 </p>
@@ -455,23 +455,23 @@ tampoco
 </section>
 </section>
 <section>
-<section id="slide-org1cbf7c9">
-<h2 id="org1cbf7c9">Excepciones</h2>
+<section id="slide-org58d6fb6">
+<h2 id="org58d6fb6">Excepciones</h2>
 <p>
 Nope, we don't do that here
 </p>
 </section>
 </section>
 <section>
-<section id="slide-org1698d52">
-<h2 id="org1698d52">Pero, sin excepciones&#x2026;</h2>
+<section id="slide-org418c90d">
+<h2 id="org418c90d">Pero, sin excepciones&#x2026;</h2>
 <p>
 Como manejamos los errores?
 </p>
 
 </section>
-<section id="slide-org7eae275">
-<h3 id="org7eae275">Mediante el tipo <code>Result&lt;T,E&gt;</code></h3>
+<section id="slide-org1eedf22">
+<h3 id="org1eedf22">Mediante el tipo <code>Result&lt;T,E&gt;</code></h3>
 <p>
 Si la función puede fallar, retorna un <code>Result</code>
 </p>
@@ -493,8 +493,8 @@ fn main() {
 </div>
 
 </section>
-<section id="slide-org5e5cc3b">
-<h3 id="org5e5cc3b">Usando match</h3>
+<section id="slide-orgb2ea0c7">
+<h3 id="orgb2ea0c7">Usando match</h3>
 <div class="org-src-container">
 
 <pre><code class=" rust" >fn main() {
@@ -507,8 +507,8 @@ fn main() {
 </div>
 
 </section>
-<section id="slide-orgb96620d">
-<h3 id="orgb96620d">Mediante <code>?</code></h3>
+<section id="slide-orgbfd879c">
+<h3 id="orgbfd879c">Mediante <code>?</code></h3>
 <div class="org-src-container">
 
 <pre><code class=" rust" >fn multiple_possible_failures() -&gt; Result&lt;String,String&gt; {
@@ -522,8 +522,8 @@ fn main() {
 </div>
 
 </section>
-<section id="slide-org6cba8a4">
-<h3 id="org6cba8a4">Result envuelve tipos</h3>
+<section id="slide-org93b22d0">
+<h3 id="org93b22d0">Result envuelve tipos</h3>
 <ul>
 <li>Se puede pasar de Result&lt;T,E&gt; -&gt; Result&lt;U,E&gt;</li>
 <li>Se puede pasar de Result&lt;T,E&gt; -&gt; Result&lt;T,X&gt;</li>
@@ -544,8 +544,14 @@ fn main() {
 </section>
 </section>
 <section>
-<section id="slide-orge530443">
-<h2 id="orge530443">Sistema de <code>Ownership</code></h2>
+<section id="slide-orge029498">
+<h2 id="orge029498">Descanso</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf15798a">
+<h2 id="orgf15798a">Sistema de <code>Ownership</code></h2>
 <p>
 Cuatro Reglas:
 </p>
@@ -558,8 +564,8 @@ Cuatro Reglas:
 </ul>
 
 </section>
-<section id="slide-orge3926a8">
-<h3 id="orge3926a8">Implicaciones</h3>
+<section id="slide-orgae82b08">
+<h3 id="orgae82b08">Implicaciones</h3>
 <ul>
 <li>Fundamental para Rust</li>
 <li>Se comprueban al compilar</li>
@@ -568,13 +574,13 @@ Cuatro Reglas:
 </ul>
 
 </section>
-<section id="slide-org8394a27">
-<h3 id="org8394a27">Ejemplo</h3>
-<div class="outline-text-3" id="text-org8394a27">
+<section id="slide-org7c1da8e">
+<h3 id="org7c1da8e">Ejemplo</h3>
+<div class="outline-text-3" id="text-org7c1da8e">
 </div>
 </section>
-<section id="slide-orgc7f341c">
-<h4 id="orgc7f341c">Parte 1</h4>
+<section id="slide-orgf9c75c4">
+<h4 id="orgf9c75c4">Parte 1</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >#[derive(Debug)]
@@ -599,12 +605,12 @@ fn pacman(dot: Dot) {
 </p>
 
 </section>
-<section id="slide-org7f9b497">
-<h4 id="org7f9b497">Y si volvemos a usar dot??</h4>
+<section id="slide-org61d84ce">
+<h4 id="org61d84ce">Y si volvemos a usar dot??</h4>
 
 </section>
-<section id="slide-org2bc252a">
-<h4 id="org2bc252a">Parte 2</h4>
+<section id="slide-orgb560fb1">
+<h4 id="orgb560fb1">Parte 2</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >#[derive(Debug)]
@@ -627,8 +633,8 @@ fn pacman(dot: Dot) {
 
 
 </section>
-<section id="slide-orgbc07948">
-<h4 id="orgbc07948">No se puede!</h4>
+<section id="slide-orga1b73e6">
+<h4 id="orga1b73e6">No se puede!</h4>
 <p>
 <code>pacman</code> ha consumido el valor de dot
 </p>
@@ -639,8 +645,8 @@ fn pacman(dot: Dot) {
 </ul>
 
 </section>
-<section id="slide-orgf5f558b">
-<h4 id="orgf5f558b">Solución (bueno, más o menos)</h4>
+<section id="slide-org8a2c795">
+<h4 id="org8a2c795">Solución (bueno, más o menos)</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >#[derive(Debug, Clone)]
@@ -670,8 +676,8 @@ fn pacman(dot: Dot) {
 </ul>
 
 </section>
-<section id="slide-org129f41c">
-<h4 id="org129f41c">Copy</h4>
+<section id="slide-org07a6de3">
+<h4 id="org07a6de3">Copy</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >#[derive(Debug, Clone, Copy)]
@@ -698,8 +704,8 @@ Ahora si funciona
 </p>
 
 </section>
-<section id="slide-org36f5a79">
-<h4 id="org36f5a79">Copy vs Clone</h4>
+<section id="slide-org072f275">
+<h4 id="org072f275">Copy vs Clone</h4>
 <ul>
 <li>Clone es explícito</li>
 <li>Copy es para:
@@ -712,13 +718,13 @@ Ahora si funciona
 </ul>
 
 </section>
-<section id="slide-org6cee452">
-<h3 id="org6cee452">Quiz time!</h3>
-<div class="outline-text-3" id="text-org6cee452">
+<section id="slide-orgf116080">
+<h3 id="orgf116080">Quiz time!</h3>
+<div class="outline-text-3" id="text-orgf116080">
 </div>
 </section>
-<section id="slide-orgd5a259f">
-<h4 id="orgd5a259f">Que pasa si volvemos a llamar <code>use_file</code> con <code>file</code>?</h4>
+<section id="slide-org418e202">
+<h4 id="org418e202">Que pasa si volvemos a llamar <code>use_file</code> con <code>file</code>?</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >use std::fs::File;
@@ -736,8 +742,8 @@ fn use_file(f: File) {
 </div>
 
 </section>
-<section id="slide-org8e88829">
-<h4 id="org8e88829">Como sería la implementación?</h4>
+<section id="slide-org17efe98">
+<h4 id="org17efe98">Como sería la implementación?</h4>
 <p>
 Si drop es la función que desaloja un valor de forma inmediata
 </p>
@@ -756,8 +762,8 @@ fn main() {
 </div>
 
 </section>
-<section id="slide-orgee41309">
-<h4 id="orgee41309">Solución</h4>
+<section id="slide-org6fb99a6">
+<h4 id="org6fb99a6">Solución</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >#[inline]
@@ -771,16 +777,16 @@ fn drop&lt;T&gt;(_: T) {
 </section>
 </section>
 <section>
-<section id="slide-org5c700e5">
-<h2 id="org5c700e5">También puedes prestar</h2>
+<section id="slide-org318dfa8">
+<h2 id="org318dfa8">También puedes prestar</h2>
 <p>
 Si solo usamos copy, clone y transferimos propiedad,
 se hace muy ineficaz o no podemos reusar los valores
 </p>
 
 </section>
-<section id="slide-org8f789e6">
-<h3 id="org8f789e6">Ejemplo</h3>
+<section id="slide-orgf7b0ff7">
+<h3 id="orgf7b0ff7">Ejemplo</h3>
 <div class="org-src-container">
 
 <pre><code class=" rust" >#[derive(Debug)]
@@ -804,12 +810,12 @@ fn inspect(p: &amp;Point) {
 
 
 </section>
-<section id="slide-org413701f">
-<h4 id="org413701f">Siempre podemos prestar si nos lo devuelven como lo dimos</h4>
+<section id="slide-org31c9d33">
+<h4 id="org31c9d33">Siempre podemos prestar si nos lo devuelven como lo dimos</h4>
 
 </section>
-<section id="slide-org7a11ac5">
-<h4 id="org7a11ac5">Pero, si queremos cambiar las cosas?</h4>
+<section id="slide-org94cf507">
+<h4 id="org94cf507">Pero, si queremos cambiar las cosas?</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >#[derive(Debug)]
@@ -833,12 +839,12 @@ fn move_point(p: &amp;mut Point, x: i32, y: i32) {
 </div>
 
 </section>
-<section id="slide-orgdccb9ba">
-<h4 id="orgdccb9ba">Solo podemos prestar mutáblemente una vez</h4>
+<section id="slide-org338b815">
+<h4 id="org338b815">Solo podemos prestar mutáblemente una vez</h4>
 
 </section>
-<section id="slide-org9a77169">
-<h3 id="org9a77169">Las reglas</h3>
+<section id="slide-org4f871e4">
+<h3 id="org4f871e4">Las reglas</h3>
 <ul>
 <li>Se puede prestar inmutablemente cuanto quieras</li>
 <li>Pero solo puede haber un préstamo mutable</li>
@@ -852,8 +858,8 @@ contexto.
 </p>
 
 </section>
-<section id="slide-org839484b">
-<h4 id="org839484b">Por qué estas reglas?</h4>
+<section id="slide-org195736e">
+<h4 id="org195736e">Por qué estas reglas?</h4>
 <div class="org-src-container">
 
 <pre><code class=" rust" >fn push_all(on: &amp;mut Vec&lt;u8&gt;, from: &amp;Vec&lt;u8&gt;) {
@@ -863,8 +869,8 @@ contexto.
 </div>
 
 </section>
-<section id="slide-orgc32c427">
-<h3 id="orgc32c427">Préstamos (Borrows) son Referencias</h3>
+<section id="slide-org1418800">
+<h3 id="org1418800">Préstamos (Borrows) son Referencias</h3>
 <p>
 Hay que desreferenciarlas de vez en cuando
 </p>
@@ -875,6 +881,21 @@ Hay que desreferenciarlas de vez en cuando
 println!("{}", number);
 </code></pre>
 </div>
+
+</section>
+</section>
+<section>
+<section id="slide-org23be016">
+<h2 id="org23be016">Manos a la obra</h2>
+<p>
+Con todo lo que hemos aprendido, vamos a implementar un servidor concurrente
+</p>
+</section>
+<section id="slide-org22eb865">
+<h3 id="org22eb865">Definición aplicación</h3>
+<p>
+Implementaremos un buzón concurrente con la librería estándar
+</p>
 </section>
 </section>
 </div>

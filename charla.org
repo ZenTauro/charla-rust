@@ -1,8 +1,10 @@
 #+TITLE: Rust
 #+REVEAL_TRANS: fade
+#+DATE:25/02/20
 #+OPTIONS: reveal-control
 #+OPTIONS: toc:nil
 #+OPTIONS: num:nil
+#+OPTIONS: date:nil
 #+REVEAL_THEME: league
 #+REVEAL_PLUGINS: (highlight)
 #+REVEAL_HIGHLIGHT_CSS: %r/lib/css/monokai.css
@@ -128,7 +130,7 @@ $ rustup component list|add
   #+end_src
 
 * Sintaxis
-  Sintaxis muy familiar a C++
+  Sintaxis muy familiar a C++ y typescript
 ** Básicos
 *** Enteros
    #+begin_src rust
@@ -247,7 +249,7 @@ $ rustup component list|add
   #+end_src
 
 * Constructores y destructores
-  Tampoco los tiene
+  No los tiene
 
 ** Espera, me habías dicho que podía hacer OOP
    - Rust no permite tener valores no inicializados
@@ -312,6 +314,8 @@ fn multiple_possible_failures() -> Result<String,String> {
          println!("{:?}", mapped_result);
      }
    #+end_src
+   
+* Descanso
 
 * Sistema de ~Ownership~
   Cuatro Reglas:
@@ -534,3 +538,8 @@ fn multiple_possible_failures() -> Result<String,String> {
     *number = 10;
     println!("{}", number);
    #+end_src
+
+* Manos a la obra
+  Con todo lo que hemos aprendido, vamos a implementar un servidor concurrente
+** Definición aplicación
+   Implementaremos un buzón concurrente con la librería estándar
